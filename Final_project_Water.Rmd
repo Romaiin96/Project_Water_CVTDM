@@ -1,0 +1,106 @@
+---
+title: "Final_Project"
+author: "KURSNER Romain"
+date: "11/9/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list=ls()) #Clean the environment
+cat("\014") #Clean the console
+```
+
+```{r}
+library(naniar)
+library(tidyr)
+```
+
+```{r}
+setwd("~/Desktop/GSEM Master Business Analytics/1ère Année/Semestre Automne 2021 GSEM/Creating Value Through Data Mining/2021 Lecture/Final Project Water")
+df = read.csv('water_potability.csv', header = TRUE, sep = ",")
+gg_miss_var(df, show_pct = TRUE)
+df2 = df %>% drop_na()
+gg_miss_var(df2, show_pct = TRUE)
+```
+
+```{r}
+attach(df2)
+
+hist(ph, main = "ph", xlab = "value") 
+  abline(v = mean(ph), col = 3, lwd = 2)
+  abline(v = median(ph), col = 1, lwd = 3)
+boxplot(ph, main = "ph", ylab = "value")
+  abline(h=mean(ph), col=3)
+  abline(h=median(ph), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Hardness, main = "Hardness", xlab = "value") 
+  abline(v = mean(Hardness), col = 3, lwd = 2)
+  abline(v = median(Hardness), col = 1, lwd = 3)
+boxplot(Hardness, main = "Hardness", ylab = "value")
+  abline(h=mean(Hardness), col=3)
+  abline(h=median(Hardness), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Solids, main = "Solids", xlab = "value") 
+  abline(v = mean(Solids), col = 3, lwd = 2)
+  abline(v = median(Solids), col = 1, lwd = 3)
+boxplot(Solids, main = "Solids", ylab = "value")
+  abline(h=mean(Solids), col=3)
+  abline(h=median(Solids), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Chloramines, main = "Chloramines", xlab = "value") 
+  abline(v = mean(Chloramines), col = 3, lwd = 2)
+  abline(v = median(Chloramines), col = 1, lwd = 3)
+boxplot(Chloramines, main = "Chloramines", ylab = "value")
+  abline(h=mean(Chloramines), col=3)
+  abline(h=median(Chloramines), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Sulfate, main = "Sulfate", xlab = "value") 
+  abline(v = mean(Sulfate), col = 3, lwd = 2)
+  abline(v = median(Sulfate), col = 1, lwd = 3)
+boxplot(Sulfate, main = "Sulfate", ylab = "value")
+  abline(h=mean(Sulfate), col=3)
+  abline(h=median(Sulfate), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Conductivity, main = "Conductivity", xlab = "value") 
+  abline(v = mean(Conductivity), col = 3, lwd = 2)
+  abline(v = median(Conductivity), col = 1, lwd = 3)
+boxplot(Conductivity, main = "Conductivity", ylab = "value")
+  abline(h=mean(Conductivity), col=3)
+  abline(h=median(Conductivity), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Organic_carbon, main = "Organic_carbon", xlab = "value") 
+  abline(v = mean(Organic_carbon), col = 3, lwd = 2)
+  abline(v = median(Organic_carbon), col = 1, lwd = 3)
+boxplot(Organic_carbon, main = "Organic_carbon", ylab = "value")
+  abline(h=mean(Organic_carbon), col=3)
+  abline(h=median(Organic_carbon), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Trihalomethanes, main = "Trihalomethanes", xlab = "value") 
+  abline(v = mean(Trihalomethanes), col = 3, lwd = 2)
+  abline(v = median(Trihalomethanes), col = 1, lwd = 3)
+boxplot(Trihalomethanes, main = "Trihalomethanes", ylab = "value")
+  abline(h=mean(Trihalomethanes), col=3)
+  abline(h=median(Trihalomethanes), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Turbidity, main = "Turbidity", xlab = "value") 
+  abline(v = mean(Turbidity), col = 3, lwd = 2)
+  abline(v = median(Turbidity), col = 1, lwd = 3)
+boxplot(Turbidity, main = "Turbidity", ylab = "value")
+  abline(h=mean(Turbidity), col=3)
+  abline(h=median(Turbidity), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+hist(Potability, main = "Potability", xlab = "value") 
+  abline(v = mean(Potability), col = 3, lwd = 2)
+  abline(v = median(Potability), col = 1, lwd = 3)
+boxplot(Potability, main = "Potability", ylab = "value")
+  abline(h=mean(Potability), col=3)
+  abline(h=median(Potability), col=1)
+  legend("topright", legend=c("mean", "median"), col=c(3,1),lty=1, cex = 0.7)
+
+detach(df2)
+```
+
